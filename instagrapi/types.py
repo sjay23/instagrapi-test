@@ -250,8 +250,8 @@ class Story(BaseModel):
     product_type: Optional[str] = ""
     thumbnail_url: Optional[HttpUrl]
     user: UserShort
-    video_url: Optional[HttpUrl] # for Video and IGTV
-    video_duration: Optional[float] = 0.0 # for Video and IGTV
+    video_url: Optional[HttpUrl]  # for Video and IGTV
+    video_duration: Optional[float] = 0.0  # for Video and IGTV
     mentions: List[StoryMention]
     links: List[StoryLink]
     hashtags: List[StoryHashtag]
