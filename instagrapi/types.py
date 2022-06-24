@@ -220,15 +220,11 @@ class StoryLocation(BaseModel):
 
 
 class StorySticker(BaseModel):
-    id: Optional[str]
-    type: Optional[str] = 'gif'
     x: float
     y: float
-    z: Optional[int] = 1000005
     width: float
     height: float
-    rotation: Optional[float] = 0.0
-    extra: Optional[dict] = {}
+    story_link: Optional[StoryLink]
 
 
 class StoryBuild(BaseModel):
@@ -239,13 +235,10 @@ class StoryBuild(BaseModel):
 
 
 class StoryLink(BaseModel):
-    webUri: HttpUrl
-    x: float = 0.5126011
-    y: float = 0.5168225
-    z: float = 0.0
-    width: float = 0.50998676
-    height: float = 0.25875
-    rotation: float = 0.0
+    link_type: str
+    url: str
+    link_title: str
+    display_url: str
 
 
 class Story(BaseModel):
@@ -257,13 +250,13 @@ class Story(BaseModel):
     product_type: Optional[str] = ""
     thumbnail_url: Optional[HttpUrl]
     user: UserShort
-    video_url: Optional[HttpUrl]  # for Video and IGTV
-    video_duration: Optional[float] = 0.0  # for Video and IGTV
+    video_url: Optional[HttpUrl] # for Video and IGTV
+    video_duration: Optional[float] = 0.0 # for Video and IGTV
     mentions: List[StoryMention]
     links: List[StoryLink]
     hashtags: List[StoryHashtag]
     locations: List[StoryLocation]
-    stickers: List[StorySticker]
+    story_link_stickers: List[StorySticker]
     medias: List[StoryMedia] = []
 
 
