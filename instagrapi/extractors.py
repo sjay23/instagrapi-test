@@ -367,6 +367,7 @@ def extract_story_gql(data):
     story["hashtags"] = []
     story["stickers"] = []
     story["links"] = []
+    dump(story)
     story_cta_url = story.get("story_cta_url", [])
     if story_cta_url:
         story["links"] = [StoryLink(**{'webUri': story_cta_url})]
